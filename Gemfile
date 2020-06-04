@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'pundit'
+# GitHub-authentication ommniauth
 gem 'omniauth-github'
 # Facebook-authentication ommniauth
 gem 'omniauth-facebook'

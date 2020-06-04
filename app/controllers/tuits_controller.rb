@@ -7,11 +7,19 @@ class TuitsController < ApplicationController
   end
 
   def create
+    authorize @tuit
   end
 
   def new
   end
 
-  def destroy
+  def update 
+    authorize @tuit
   end
+
+  def destroy
+    authorize @tuit
+  end
+
+  
 end
