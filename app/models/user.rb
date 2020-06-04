@@ -5,6 +5,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  #Associations for active_storage
+  has_one_attached :avatar
+
+  
   #Validations
   # Tuits
   has_many :tuits

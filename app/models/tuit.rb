@@ -1,4 +1,6 @@
 class Tuit < ApplicationRecord
+
+  #Associations
   belongs_to :user
   # Comments
   has_many :comments

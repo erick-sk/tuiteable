@@ -32,6 +32,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
     <%= f.label :location %><br />
     <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
   </div>
