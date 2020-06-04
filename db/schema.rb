@@ -34,11 +34,6 @@ ActiveRecord::Schema.define(version: 2020_06_04_022351) do
     t.index ["user_id"], name: "index_tuits_on_user_id"
   end
 
-  create_table "tuits_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "tuit_id", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "name"
@@ -49,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_06_04_022351) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
-    t.string "string", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
