@@ -5,11 +5,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  devise :omniauthable, omniauth_providers: %i[facebook github]
   #Associations for active_storage
   has_one_attached :avatar
-
-  
   #Validations
   # Tuits
   has_many :tuits
@@ -30,4 +28,13 @@ class User < ApplicationRecord
   validates :email, presence: {message: 'email is required'}, uniqueness: {message: 'Already an account have this email linked'}
 
   validates :name, presence:true
+
+  # Omniauth- authentication
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.username = auth.info.name.downcase.gsub(/\s/,"") + rand(1..10000).to_s
+      user.password = Devise.friendly_token[0, 20]
+    end
+  end
 end

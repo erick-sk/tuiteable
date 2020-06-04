@@ -3,13 +3,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'omniauth-github'
+# Facebook-authentication ommniauth
+gem 'omniauth-facebook'
+# Dotenv-rails
+gem 'dotenv-rails', groups: [:development, :test]
+# Active_storage
 gem 'activestorage'
-
 # Devise
 gem 'devise'
-
+# Faker
 gem 'faker'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 # Use postgresql as the database for Active Record
