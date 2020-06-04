@@ -20,7 +20,12 @@ class User < ApplicationRecord
      # has_many :likes
      # has_many :liked_tuits, through: likes, source: :tuit
   # Follows
-    # TODO
+  has_many :follows, foreign_key: :follower_id
+  has_many :followed_users, through: :follows, source: :followed
+
+  has_many :followeds,class_name:'Follow', foreign_key: :followed_id
+  has_many :followers, through: :followeds, source: :follower
+
   validates :username, presence: {message: 'Username is required'}, uniqueness: {message: 'Username taken'}
   validates :email, presence: {message: 'email is required'}, uniqueness: {message: 'Already an account have this email linked'}
 
