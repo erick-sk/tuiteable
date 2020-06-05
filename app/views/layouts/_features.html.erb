@@ -1,0 +1,28 @@
+<%students = %w[Alessandro Erick Elvis] %>
+<section id = "features-bar">
+<%if user_signed_in? %>
+    <div id="features">
+      <h1>New features coming soon!</h1>
+      <%= image_tag('coming.svg', alt: 'soon') %>
+    </div>
+<%else %>
+    <%= form_for("user", :url => user_session_path) do |f| %>
+      <h1>Log in to {tuiteable}</h1>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Log in" %>
+        </div>
+      <% end %>
+<% end %>
+
+  <span id="credits">Made with bravery by {codeable} cohort #2 <%=students.shuffle.to_sentence %></span>
+</section>
