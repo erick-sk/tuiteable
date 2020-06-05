@@ -1,45 +1,45 @@
 # frozen_string_literal: true
 
 class Api::TuitsController < ApiController
-  acts_as_token_authentication_handler_for User, only: [:index]
+  acts_as_token_authentication_handler_for User, only: %i[create update destroy]
 
   def index
-    tuits = Tuit.all
-    render json: tuits, status: :ok
+    render json: Tuit.all, status: :ok
   end
 
   def show
-    user = User.find(params[:id])
-    render json: user, status: :ok
+    tuit = Tuit.find(params[:id])
+    render json: tuit, status: :ok
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      render json: user, status: :created
+    tuit = Tuit.new(tuit_params)
+    tuit.user = current_user
+    if tuit.save
+      render json: tuit, status: :created
     else
-      render json: user.errors, status: :unprocessable_entity
+      render json: tuit.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    user = User.find(params[:id])
-    if user.update(user_params)
-      render json: user, status: :ok
+    tuit = Tuit.find(params[:id])
+    if tuit.update(tuit_params)
+      render json: tuit, status: :ok
     else
-      render json: user.errors, status: :unprocessable_entity
+      render json: tuit.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    user = User.find(params[:id])
-    user.destroy
-    render json: { status: 'Successfully destroyed', data: user }, status: :ok
+    tuit = Tuit.find(params[:id])
+    tuit.destroy
+    render json: { status: 'Successfully destroyed', data: tuit }, status: :ok
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :name, :email, :bio, :location, :password)
+  def tuit_params
+    params.require(:tuit).permit(:body)
   end
 end

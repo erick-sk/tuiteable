@@ -57,12 +57,16 @@ describe Api::UsersController do
   describe 'PUT to update' do
     it 'returns http status ok' do
       user = User.create(username: 'erick-sk-one', name: 'User test-api', location: 'Piura', bio: 'Dev-codeable', email: 'onesimo@mail.com', password: '123456')
+      request.headers['X-User-Email'] = user.email
+      request.headers['X-User-Token'] = user.authentication_token
       put :update, params: { id: user.id, user: { name: 'Holi woli' } }
       expect(response).to have_http_status(:ok)
     end
 
     it 'returns user data update' do
       user = User.create(username: 'erick-sk-one', name: 'User test-api', location: 'Piura', bio: 'Dev-codeable', email: 'onesimo@mail.com', password: '123456')
+      request.headers['X-User-Email'] = user.email
+      request.headers['X-User-Token'] = user.authentication_token
       put :update, params: { id: user.id, user: { name: 'Holi woli', username: 'asdfg' } }
 
       user_response = JSON.parse(response.body)
