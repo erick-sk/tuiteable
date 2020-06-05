@@ -13,12 +13,12 @@
           <%= image_tag("avatar_placeholder.png", class: "img-avatar")  %>
         <% end %>
         <div class="tuit__data">
-          <p class="tuit-metadata"><span class="tuit-author"><%= tuit.user.name %></span><%= tuit.user.username %>-<%= tuit.created_at %></p>
+          <p class="tuit-metadata"><span class="tuit-author"><%= tuit.user.name %></span> @<%= tuit.user.username %> - <%= tuit.created_at.strftime("%d of %B") %></p>
           <p class="tuit-body"><%= tuit.body %></p>
           <div class="tuit__numeric-data">
             <div class="tuit-comments">
               <i class="far fa-comment" aria-hidden></i>
-              <p class="tuit-numeric">5</p>
+              <p class="tuit-numeric"><%= tuit.comment_count %></p>
             </div>
             <div class="tuit-likes">
               <i class="far fa-heart" aria-hidden="true"></i>
