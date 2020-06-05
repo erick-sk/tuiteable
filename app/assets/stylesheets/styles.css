@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    background-color: #1D2128;
+    color: white;
+}
+/*NAVBAR*/
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
+
+nav a{
+    display: flex;
+    margin: 25px 10px 15px 10px;
+    font-family: 'Roboto', sans-serif;
+}
+nav a img {
+    transform: scale(1.25);
+}
+
+nav a span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-left: 10px;
+}
+
+nav a span:active,:link,:visited {
+    text-decoration: none;
+}
+
+#logout {
+    width: 40%;
+    font-size: 1.2em;
+    color: #E0245E;
+    border: solid #E0245E 3px;
+    border-radius: 20px;
+    padding: 3px 0 3px 8px;
+}
