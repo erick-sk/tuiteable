@@ -1,6 +1,7 @@
-class Tuit < ApplicationRecord
+# frozen_string_literal: true
 
-  #Associations
+class Tuit < ApplicationRecord
+  # Associations
   belongs_to :user
   # Comments
   has_many :comments
@@ -13,5 +14,4 @@ class Tuit < ApplicationRecord
   # Validations =>
   validates :body,presence: { message: 'Tuit must have a body' }, length: { in:1..280 }
   #validates :title, presence: { message: 'Meme must have a title'}
-
 end

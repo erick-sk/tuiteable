@@ -11,7 +11,7 @@ a*{
 .tuits__section {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 55%;
   align-items: center;
   font-family: 'Roboto', sans-serif;
 }
@@ -31,7 +31,7 @@ a*{
 
 .tuit__item {
   box-sizing: border-box;
-  width: 600px;
+  width: 100%;
   padding-left: 15px;
   border: 1px solid #999b9e;
   display: flex;
@@ -44,7 +44,6 @@ a*{
   height: 50px;
   border-radius: 80px;
   border: 2px solid #ffffff;
-  
 }
 
 .tuit__data {
@@ -145,4 +144,22 @@ a*{
 .tuit-label {
   margin-left: 5px;
   margin-right: 50px;
+}
+.tuit__create {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #999b9e;
+}
+.tuit__create div {
+  display: flex;
+}
+
+.tuit__create #tuit_body{
+  width: 100%;
+  font-size: 2em;
+  background-color: #1d2128;
+  border: none;
+  color: #999B9E;
 }
