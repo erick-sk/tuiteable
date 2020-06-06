@@ -1,5 +1,4 @@
-<body>
-  <section class="tuits__section">
+ <section class="tuits__section">
   <div class=tuits__section-title>
   <h3>Tuit</h3>
   </div>
@@ -42,7 +41,11 @@
         <div class="tuit__data">
           <p class="tuit-metadata"><span class="tuit-author"><%= comment.user.name %></span> @<%= comment.user.username %> - <%= comment.created_at.strftime("%d of %B") %></p>
           <p class="tuit-body"><%= comment.body %></p>
+        </div>
+      </div>
     </section>
   <% end %>
-  <section>  
-</body>
+
+   <%= render partial: './comments/comment_form' %>
+ </section>
+

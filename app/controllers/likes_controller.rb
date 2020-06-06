@@ -8,7 +8,12 @@ class LikesController < ApplicationController
     else
       @like.destroy
     end
-    redirect_to '/tuits'  
+    p params.nil?
+    if params[:tuit_id].nil?
+      redirect_to "/tuits"
+    else
+      redirect_to "/tuits/#{@tuit.id}"
+    end
   end
 
   def find_tuit
