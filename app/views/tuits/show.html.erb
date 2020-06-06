@@ -31,8 +31,7 @@
     </div>
   </div>
   <% @tuit.comments.order(:created_at).each do |comment| %>
-    <section class="tuit__section">
-      <div class="tuit__item">
+      <div class="tuit__item comment__item">
         <% if comment.user.avatar.attached? %>
           <%= image_tag(comment.user.avatar, class: "img-avatar")  %>
         <% else%>
@@ -43,7 +42,6 @@
           <p class="tuit-body"><%= comment.body %></p>
         </div>
       </div>
-    </section>
   <% end %>
 
    <%= render partial: './comments/comment_form' %>

@@ -7,7 +7,7 @@
     <% else%>
       <%= image_tag("avatar_placeholder.png", class: "my-photo")  %>
     <% end %>
-    <%= f.text_area :body, placeholder: "What you are thinking about is..." %>
+    <%= f.text_area :body, placeholder: "What you are thinking about is...", class: "tuit-text" %>
   </div>
   <%= f.submit "Tuiteable!", class: "tuit-button"%>
 <% end %>
