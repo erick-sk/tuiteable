@@ -2,3 +2,68 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.user-show {
+  font-family: 'Roboto', sans-serif;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #999B9E
+}
+
+.return-page {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  border-bottom: 2px solid #999B9E;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+.return-page img {
+  margin-right: 60px;
+  margin-left: 20px;
+  transform: scale(1.5);
+}
+
+.return-page a:active,:link,:visited {
+  color: white;
+}
+#user-profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#user-profile div:first-child h1 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+#user-profile div:first-child p {
+  margin-top: 0;
+  color:#999B9E;
+  font-size: 0.8em;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+#user-info {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#user-profile .actions input {
+  height: 40px;
+  color: #1DA1F2;
+  background-color: #1D2128;
+  border: solid #1DA1F2 2px;
+  border-radius: 25px;
+  font-size: 1em;
+}
+
+#user-profile .actions input:hover {
+  cursor: pointer;
+}
+

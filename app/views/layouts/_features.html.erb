@@ -7,7 +7,9 @@
     </div>
 <%else %>
     <%= form_for("user", :url => user_session_path) do |f| %>
-      <h1>Log in to {tuiteable}</h1>
+
+        <h1>Log in to {tuiteable}</h1>
+
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -21,6 +23,8 @@
         <div class="actions">
           <%= f.submit "Log in" %>
         </div>
+      <h1>Not registered yet?</h1>
+      <%= link_to "Sign Up with email",  new_user_registration_path, class: "button2" %>
       <% end %>
 <% end %>
 
