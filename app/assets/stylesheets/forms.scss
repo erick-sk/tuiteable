@@ -1,0 +1,33 @@
+.container-form {
+  font-family: 'Roboto', sans-serif;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #999B9E;
+}
+
+.container-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-form .field {
+  width: 70%;
+}
+
+.button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: solid #1DA1F2 2px;
+  border-radius: 25px;
+  font-size: 1.1em;
+  padding: 0 5px 0 5px;
+  color: #1DA1F2 !important;
+  margin-bottom: 20px;
+}

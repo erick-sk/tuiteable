@@ -1,0 +1,14 @@
+<%if user_signed_in? %>
+<%= form_for(@tuit) do |f| %>
+  <% @tuit.user = current_user %>
+  <div>
+    <% if current_user.avatar.attached? %>
+      <%= image_tag(current_user.avatar, class: "my-photo")  %>
+    <% else%>
+      <%= image_tag("avatar_placeholder.png", class: "my-photo")  %>
+    <% end %>
+    <%= f.text_area :body, placeholder: "What you are thinking about is..." %>
+  </div>
+  <%= f.submit "Tuiteable!"%>
+<% end %>
+<%end %>

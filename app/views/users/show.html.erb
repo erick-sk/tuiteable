@@ -1,13 +1,30 @@
-<h1>User Profile</h1>
 
-<p>Username: <%=@user.username%></p>
-<p>Name: <%=@user.name%></p>
-<p>Location: <%=@user.location%></p>
-<p>Biografi: <%=@user.bio%></p>
-<div>
-  <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar %>
-  <% end %>
-</div>
 
-<%=link_to "Go to home page", root_path%>
+<section class="user-show">
+  <section class="return-page">
+    <%= link_to root_path do %>
+      <%= image_tag('back.svg', alt: 'logo') %>
+    <% end %>
+    <%= link_to "Back to Explorer", root_path%>
+  </section>
+
+  <section id="user-profile">
+    <div>
+      <% if @user.avatar.attached? %>
+        <%= image_tag(@user.avatar, class: "my-photo")  %>
+      <% else%>
+        <%= image_tag("avatar_placeholder.png", class: "my-photo")  %>
+      <% end %>
+      <h1><%=@user.name%></h1>
+      <p>@<%=@user.username%></p>
+    </div>
+    <p><%=@user.bio%></p>
+    <div id = "user-info">
+      <p><i class="fas fa-map-marker-alt"></i>  <%=@user.location%></p>
+      <p><i class="far fa-calendar-alt"></i>  Joined in May</p>
+    </div>
+    <div class="actions">
+      <%= button_to "Edit Account", edit_user_registration_path,method: :get %>
+    </div>
+  </section>
+</section>
