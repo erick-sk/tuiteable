@@ -1,0 +1,10 @@
+<%if user_signed_in? %>
+  <%= form_for(@comment) do |f| %>
+    <% @comment.tuit = @tuit %>
+    <% @comment.user = current_user %>
+    <div>
+      <%= f.text_area :body, placeholder: "What you are thinking about is..." %>
+    </div>
+    <%= f.submit "Tuiteable!", class: "tuit-button"%>
+  <% end %>
+<%end %>
