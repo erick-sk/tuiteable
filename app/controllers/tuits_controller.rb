@@ -5,9 +5,9 @@ class TuitsController < ApplicationController
   end
 
   def show
-    @tuits = Tuit.all
-    @tuit = Tuit.find(params[:id])
+    @tuit = Tuit.find_by_id(params[:id])
     @comment = Comment.new
+
   end
 
   def create

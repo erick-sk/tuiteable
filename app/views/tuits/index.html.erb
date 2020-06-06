@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <body>
   <section class="tuits__section">
     <div class=tuits__section-title>
@@ -8,7 +6,7 @@
     <div class="tuit__create">
       <%= render partial: 'tuit_form' %>
     </div>
-    <% @tuits.each do |tuit| %>
+    <% @tuits.order(:created_at).each do |tuit| %>
       <div class="tuit__item">
         <% if tuit.user.avatar.attached? %>
           <%= image_tag(tuit.user.avatar, class: "img-avatar")  %>
@@ -17,17 +15,27 @@
         <% end %>
         <div class="tuit__data">
           <p class="tuit-metadata"><span class="tuit-author"><%= tuit.user.name %></span> @<%= tuit.user.username %> - <%= tuit.created_at.strftime("%d of %B") %></p>
-          <p class="tuit-body"><%= tuit.body %></p>
+          <a href="<%= tuit_path(tuit.id) %>">
+            <p class="tuit-body"><%= tuit.body %></p>
+          </a>  
           <div class="tuit__numeric-data">
             <div class="tuit-comments">
               <i class="far fa-comment" aria-hidden></i>
               <p class="tuit-numeric"><%= tuit.comment_count %></p>
             </div>
             <div class="tuit-likes">
-              <i class="far fa-heart" aria-hidden="true"></i>
-              <p class="tuit-numeric"><%= tuit.like_count %></p>
+              <% if user_signed_in? %>
+                  <form action="<%= tuit_likes_path(tuit.id) %>" method=post>
+                    <button class="button-like" type= submit>
+                      <i class="far fa-heart" aria-hidden="true"></i>
+                      <label class="tuit-numeric"><%= tuit.like_count %></label>
+                    </button>
+                  </form>  
+              <% else %>
+                <i class="far fa-heart" aria-hidden="true"></i>
+                <p class="tuit-numeric"><%= tuit.like_count %></p>
+              <% end %>
             </div>
-            
           </div>
         </div>
       </div>
