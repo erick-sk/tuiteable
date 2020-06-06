@@ -1,2 +1,48 @@
-<h1>Tuits#show</h1>
-<p>Find me in app/views/tuits/show.html.erb</p>
+<body>
+  <section class="tuits__section">
+  <div class=tuits__section-title>
+  <h3>Tuit</h3>
+  </div>
+  <div class="tuit__item">
+    <% if @tuit.user.avatar.attached? %>
+      <%= image_tag(@tuit.user.avatar, class: "img-avatar")  %>
+    <% else%>
+      <%= image_tag("avatar_placeholder.png", class: "img-avatar")  %>
+    <% end %>
+    <div class="tuit__data">
+      <p class="tuit-author tuit-author-details"><%= @tuit.user.name %></p>
+      <p class="tuit-metadata tuit-username">@<%= @tuit.user.username %></p>
+      <p class="tuit-body tuit-body-details"><%= @tuit.body %></p>
+      <p class="tuit-metadata tuit-datetime"><%= @tuit.created_at.strftime("%d of %B") %></p>
+      <div class="tuit__numeric-data">
+        <div class="tuit-likes">
+          <p class="tuit-likes-count"><%= @tuit.like_count %></p>
+          <p class="tuit-label ">Likes</p>
+          <% if user_signed_in? %>  
+            <form action="<%= tuit_likes_path(@tuit.id) %>" method=post>
+              <button class="button-like" type= submit>
+                <i class="far fa-heart" aria-hidden="true"></i>
+              </button>
+            </form>  
+          <% else %>
+            <i class="far fa-heart" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% @tuit.comments.order(:created_at).each do |comment| %>
+    <section class="tuit__section">
+      <div class="tuit__item">
+        <% if comment.user.avatar.attached? %>
+          <%= image_tag(comment.user.avatar, class: "img-avatar")  %>
+        <% else%>
+          <%= image_tag("avatar_placeholder.png", class: "img-avatar")  %>
+        <% end %>
+        <div class="tuit__data">
+          <p class="tuit-metadata"><span class="tuit-author"><%= comment.user.name %></span> @<%= comment.user.username %> - <%= comment.created_at.strftime("%d of %B") %></p>
+          <p class="tuit-body"><%= comment.body %></p>
+    </section>
+  <% end %>
+  <section>  
+</body>

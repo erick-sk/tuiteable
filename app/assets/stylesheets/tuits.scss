@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+a*{
+  margin: 0;
+  width: 100%;
+}
 
 .tuits__section {
   display: flex;
@@ -92,4 +96,53 @@
   margin-left: 5px;
   font-size: 12px;
   line-height: 14px;
+}
+
+.button-like {
+  width: 29.75px;
+  height: 38px;
+  color: #ffffff;
+  background: none;
+  border: none;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button-like--active {
+  color: #e0245e;
+}
+
+.tuit-author-details {
+  margin-bottom: 0;
+}
+
+.tuit-username {
+  margin-top: 4px;
+  margin-bottom: 5px;
+}
+
+.tuit-body-details {
+  margin: 0;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.tuit-datetime {
+  margin-top: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #999B9E;
+}
+
+.tuit-likes-count, .tuit-label {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.tuit-label {
+  margin-left: 5px;
+  margin-right: 50px;
 }

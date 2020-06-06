@@ -4,6 +4,7 @@ class TuitsController < ApplicationController
   end
 
   def show
+    @tuit = Tuit.find_by_id(params[:id])
   end
 
   def create
