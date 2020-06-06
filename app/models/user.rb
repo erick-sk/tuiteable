@@ -19,7 +19,7 @@ class User < ApplicationRecord
   # has_many :likes
   # has_many :liked_tuits, through: likes, source: :tuit
   # Follows
-  has_many :follows, foreign_key: :follower_id
+  has_many :follows, class_name: 'Follow', foreign_key: :follower_id
   has_many :followed_users, through: :follows, source: :followed
 
   has_many :followeds, class_name: 'Follow', foreign_key: :followed_id
