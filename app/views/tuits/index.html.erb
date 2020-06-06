@@ -3,9 +3,11 @@
     <div class=tuits__section-title>
       <h3>Explorer</h3>
     </div>
+    <% if user_signed_in? %>
     <div class="tuit__create">
       <%= render partial: 'tuit_form' %>
     </div>
+    <% end %>
     <% @tuits.order(:created_at).each do |tuit| %>
       <div class="tuit__item">
         <% if tuit.user.avatar.attached? %>
