@@ -11,7 +11,9 @@
   <section id="user-profile">
     <div>
       <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar %>
+        <%= image_tag(@user.avatar, class: "my-photo")  %>
+      <% else%>
+        <%= image_tag("avatar_placeholder.png", class: "my-photo")  %>
       <% end %>
       <h1><%=@user.name%></h1>
       <p>@<%=@user.username%></p>
@@ -22,7 +24,7 @@
       <p><i class="far fa-calendar-alt"></i>  Joined in May</p>
     </div>
     <div class="actions">
-      <%= button_to "Edit Profile", edit_user_registration_path,method: :get %>
+      <%= button_to "Edit Account", edit_user_registration_path,method: :get %>
     </div>
   </section>
 </section>

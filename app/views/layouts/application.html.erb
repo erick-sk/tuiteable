@@ -15,11 +15,11 @@
 
   <body>
   <section class="container">
-    <%= render "layouts/navbar" %>
+    <%= render partial: "/navbar" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <%= render "layouts/features" %>
+    <%= render partial: "/features" %>
   </section>
   </body>
 </html>

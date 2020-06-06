@@ -5,6 +5,9 @@
     <div class=tuits__section-title>
       <h3>Explorer</h3>
     </div>
+    <div class="tuit__create">
+      <%= render partial: 'tuit_form' %>
+    </div>
     <% @tuits.each do |tuit| %>
       <div class="tuit__item">
         <% if tuit.user.avatar.attached? %>
